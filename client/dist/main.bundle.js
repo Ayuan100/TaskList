@@ -684,7 +684,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".gray {\n\tcolor: gray;\n}\n.btn-mini {\n    padding: 2px 6px;\n    font-size: 11px;\n    line-height: 13px;\n}\n.list-group-item {\n\tborder-right: none;\n\tborder-left: none;\n}\n\n.btn-space {\n    margin-right: 5px;\n}\n\n.bottom {\n\tposition: absolute;\n\tbottom: 0px;\n}\n.transparent {\n\topacity: 0.8;\n}\n.min-height {\n\tmin-height: 30em;\n}", ""]);
+exports.push([module.i, ".gray {\n\tcolor: gray;\n}\n.btn-mini {\n    padding: 2px 6px;\n    font-size: 11px;\n    line-height: 13px;\n}\n.list-group-item {\n\tborder-right: none;\n\tborder-left: none;\n}\n\n.btn-space {\n    margin-right: 5px;\n}\n\n.bottom {\n\tposition: absolute;\n\tbottom: 0px;\n}\n.transparent {\n\topacity: 0.8;\n}\n.min-height {\n\tmin-height: 25em;\n}", ""]);
 
 // exports
 
