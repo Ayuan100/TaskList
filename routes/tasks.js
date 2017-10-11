@@ -3,10 +3,6 @@ var passport = require('passport');
 var Task = require('../models/task');
 var router = express.Router();
 
-var mongojs = require('mongojs');
-var db = mongojs('mongodb://ayuan:ayuan@ds157444.mlab.com:57444/ayuan-first', ['tasks']);
-var taskCollection = db.tasks;
-
 var isAuthenticated = function(req,res,next) { 
     if(req.user) console.log('user of current request:', req.user.email);
     else console.log('unlogged user');

@@ -9,8 +9,7 @@
   "author": "ayuan",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.16.1",
-    "mongojs": "^2.4.1"
+    "express": "^4.16.1"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",

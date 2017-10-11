@@ -2,8 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var account = require('./routes/account');
-var tasks = require('./routes/tasks');
+
 
 var app = express();
 
@@ -40,8 +39,12 @@ passport.deserializeUser(User.deserializeUser());
 
 
 // Set Routers
+var account = require('./routes/account');
+var tasks = require('./routes/tasks');
+var index = require('./routes/index');
 app.use('/account', account);
 app.use('/api', tasks);
+app.use('/', index);
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://ayuan:ayuan@ds157444.mlab.com:57444/ayuan-first', function(err){
@@ -51,7 +54,7 @@ mongoose.connect('mongodb://ayuan:ayuan@ds157444.mlab.com:57444/ayuan-first', fu
     else console.log('connect to mongodb');
 });
 
-var port = 3000;
+var port = 8080;
 app.listen(port, function(){
 	console.log("server listening on port ", port);
 })
