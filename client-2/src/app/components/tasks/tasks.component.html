@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row">
+		<date-list class='mx-auto' (onChange)="switchDate($event)"></date-list>
+		<progress-bar class='float-right' [undone]="toDoList.length" [done]="doneList.length"></progress-bar>
+	</div>
+	<br>
+
+	<div class="row">
+		<to-do-list class='col-6' [tasksList]="toDoList" [isLoaded]="isLoaded_todo" (onDone)="onDone($event)"></to-do-list>
+
+		<done-list class='col-6' [tasksList]="doneList" [isLoaded]="isLoaded_done"></done-list>
+	</div>
+
+</div>
+

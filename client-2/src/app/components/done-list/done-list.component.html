@@ -1,0 +1,25 @@
+<h2 class="text-center">Done List
+	<span class="badge badge-primary badge-pill">{{tasksList.length}}</span>
+</h2>
+
+<div *ngIf="isLoaded;then content else loading">here is ignored</div>
+    
+<ng-template #content>
+	<ul class="list-group" *ngIf="tasksList.length>0;else empty"> 
+		<li class="list-group-item list-group-item-action" *ngFor="let task of tasksList;let i=index; ">
+			<span class="font-weight-bold">{{i+1}}.</span>
+			<span>{{task.name}}</span>
+			<button type="button" class="btn btn-warning btn-mini float-right" (click) = "delete(i,task)">
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</button>
+		</li>
+	</ul>
+</ng-template>
+
+<ng-template #empty>
+	<div class="text-secondary text-center" style="height: 20rem; line-height: 20rem;">No Item Yet!</div>
+</ng-template>
+
+<ng-template #loading>
+	<div class="text-secondary text-center" style="height: 20rem; line-height: 20rem">loading...</div>
+</ng-template>

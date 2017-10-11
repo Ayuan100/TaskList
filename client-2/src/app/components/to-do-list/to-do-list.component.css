@@ -1,0 +1,27 @@
+.gray {
+	color: gray;
+}
+.btn-mini {
+    padding: 2px 6px;
+    font-size: 11px;
+    line-height: 13px;
+}
+.list-group-item {
+	border-right: none;
+	border-left: none;
+}
+
+.btn-space {
+    margin-right: 5px;
+}
+
+.bottom {
+	position: absolute;
+	bottom: 0px;
+}
+.transparent {
+	opacity: 0.8;
+}
+.min-height {
+	min-height: 30em;
+}

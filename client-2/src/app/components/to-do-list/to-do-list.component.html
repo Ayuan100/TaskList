@@ -1,0 +1,45 @@
+<h2 class="text-center">To Do List
+	<span class="badge badge-primary badge-pill">{{tasksList.length}}</span>
+</h2>
+<div *ngIf="isLoaded;then content else loading">here is ignored</div>
+    
+<ng-template #content>
+	<ul class="list-group min-height" *ngIf="tasksList.length>0;else empty">
+		<li class="list-group-item list-group-item-action" *ngFor="let task of tasksList;let i=index; ">
+			<span class="font-weight-bold">{{i+1}}.</span>
+			<span>{{task.name}}</span>
+			<span class="float-right transparent">
+				<button type="button" class="btn btn-info btn-mini" (click)="prior(i,task)">
+				  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+				</button>
+				<button type="button" class="btn btn-info btn-mini" (click)="unprior(i,task)">
+				  <i class="fa fa-arrow-down" aria-hidden="true"></i>
+				</button>
+
+				<button type="button" class="btn btn-success btn-mini" (click) = "done(i,task)">
+					<i class="fa fa-check" aria-hidden="true"></i>
+				</button>
+				<button type="button" class="btn btn-warning btn-mini" (click) = "delete(i,task)">
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+			</span>
+		</li>
+	</ul>
+</ng-template>
+
+<ng-template #empty>
+	<div class="text-secondary text-center min-height" style="height: 20rem; line-height: 20rem;">No Item Yet!</div>
+</ng-template>
+
+<ng-template #loading>
+	<div class="text-secondary text-center min-height" style="height: 20rem; line-height: 20rem">loading...</div>
+</ng-template>
+
+<br>
+<div class="input-group">
+	<input type="text" class="form-control" placeholder="Add To Do Item..." #input (keyup.enter)="add(input.value);input.value=null;"/>
+	<span class="input-group-btn">
+		<button class="btn btn-primary" (click) = "add(input.value);input.value=null;">Add</button>
+	</span>
+</div>
+

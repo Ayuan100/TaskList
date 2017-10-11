@@ -1,0 +1,10 @@
+.gray {
+	color: gray;
+}
+.small {
+	font-size: 0.5em;
+}
+progress {
+	vertical-align: middle;
+	display: inline;
+}
