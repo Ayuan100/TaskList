@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light bg-light\">\n\t<a class=\"navbar-brand\" href=\"#\">\n\t\t<!-- <img src=\"/assets/brand/bootstrap-solid.svg\" width=\"30\" height=\"30\" alt=\"\"> -->\n\t</a>\n\t<account class=\"float-right\" (onChange)=\"changeStatus($event)\"></account>\n</nav>\n<br>\n<tasks [status]=\"status\"></tasks>\n\n"
+module.exports = "<nav class=\"navbar navbar-light bg-light\">\n\t<a class=\"navbar-brand\" href=\"#\">\n\t\t<!-- <img src=\"/assets/brand/bootstrap-solid.svg\" width=\"30\" height=\"30\" alt=\"\"> -->\n\t</a>\n\t<account class=\"row float-right\" (onChange)=\"changeStatus($event)\"></account>\n</nav>\n<br>\n<tasks [status]=\"status\"></tasks>\n\n"
 
 /***/ }),
 
@@ -171,7 +171,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/account/account.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"(status=='login');then LOGOUT else LOGIN\">here is ignored</div>\n\n<ng-template #LOGIN>\n\t<form class=\"form-inline\" (ngSubmit)=\"login()\">\n\t\t<div class=\"input-group\">\n\t\t  <span class=\"input-group-addon\" id=\"basic-addon1\">@</span>\n\t\t  <input type=\"text\" class=\"form-control\" placeholder=\"Username\" aria-label=\"Username\" aria-describedby=\"basic-addon1\" [(ngModel)]=\"email\" name=\"name\">\n\t\t</div>\n\t\t<div class=\"input-group\">\n\t\t  <span class=\"input-group-addon\" id=\"basic-addon1\">@</span>\n\t\t  <input type=\"password\" class=\"form-control\" placeholder=\"Password\" aria-label=\"Password\" aria-describedby=\"basic-addon1\" [(ngModel)]=\"password\" name=\"pass\">\n\t\t</div>\n\t\t<button type=\"submit\" class=\"btn btn-sm btn-outline-primary\">Login</button>\n\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-primary btn-space\" (click)=\"open(content)\">SignUp</button>\n\t</form>\n\n\n\t<ng-template #content let-c=\"close\" let-d=\"dismiss\">\n\t  <div class=\"modal-header\">\n\t    <h4 class=\"modal-title\">Sign Up</h4>\n\t    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d()\">\n\t      <span aria-hidden=\"true\">&times;</span>\n\t    </button>\n\t  </div>\n\n\t  <div class=\"modal-body\">\n\t    <form>\n\t\t\t<div class=\"form-group col-8 mx-auto\">\n\t\t\t  <input type=\"text\" class=\"form-control\" placeholder=\"Email\" aria-label=\"Username\" aria-describedby=\"basic-addon1\" [(ngModel)]=\"newEmail\" name=\"name\">\n\t\t\t</div>\n\t\t\t<br>\n\t\t\t<div class=\"form-group col-8 mx-auto\">\n\t\t\t  <input type=\"password\" class=\"form-control\" placeholder=\"Password\" aria-label=\"Password\" aria-describedby=\"basic-addon1\" [(ngModel)]=\"newPassword\" name=\"pass\">\n\t\t\t</div>\n\t\t</form>\n\t  </div>\n\n\t  <div class=\"modal-footer\" style=\"justify-content: center;\">\n\t    <button type=\"submit\" class=\"btn btn-outline-dark\" (click)=\"signup()\">SignUp</button>\n\t  </div>\n\t</ng-template>\n\n\t\n</ng-template>\n<ng-template #LOGOUT>\n\t<span class=\"text-muted\">Logged in as {{user}}</span>\n\t<button class=\"btn btn-outline-primary\" (click)=\"logout()\">Logout</button>\n</ng-template>"
+module.exports = "<div *ngIf=\"(status=='login');then LOGOUT else LOGIN\">here is ignored</div>\n\n<ng-template #LOGIN>\n\t<form class=\"form-inline\" (ngSubmit)=\"login()\">\n\t\t<div class=\"input-group col\">\n\t\t  <input type=\"text\" class=\"form-control\" placeholder=\"Username\" aria-label=\"Username\" aria-describedby=\"basic-addon1\" [(ngModel)]=\"email\" name=\"name\">\n\t\t</div>\n\t\t<div class=\"input-group col\">\n\t\t  <input type=\"password\" class=\"form-control\" placeholder=\"Password\" aria-label=\"Password\" aria-describedby=\"basic-addon1\" [(ngModel)]=\"password\" name=\"pass\">\n\t\t</div>\n\t\t<button type=\"submit\" class=\"btn btn-sm btn-outline-primary d-block\">Login</button>\n\t\t<button type=\"button\" class=\"btn btn-sm btn-outline-primary btn-space\" (click)=\"open(content)\">SignUp</button>\n\t</form>\n\n\n\t<ng-template #content let-c=\"close\" let-d=\"dismiss\">\n\t  <div class=\"modal-header\">\n\t    <h4 class=\"modal-title\">Sign Up</h4>\n\t    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d()\">\n\t      <span aria-hidden=\"true\">&times;</span>\n\t    </button>\n\t  </div>\n\n\t  <div class=\"modal-body\">\n\t    <form>\n\t\t\t<div class=\"form-group col-8 mx-auto\">\n\t\t\t  <input type=\"text\" class=\"form-control\" placeholder=\"Email\" aria-label=\"Username\" aria-describedby=\"basic-addon1\" [(ngModel)]=\"newEmail\" name=\"name\">\n\t\t\t</div>\n\t\t\t<br>\n\t\t\t<div class=\"form-group col-8 mx-auto\">\n\t\t\t  <input type=\"password\" class=\"form-control\" placeholder=\"Password\" aria-label=\"Password\" aria-describedby=\"basic-addon1\" [(ngModel)]=\"newPassword\" name=\"pass\">\n\t\t\t</div>\n\t\t</form>\n\t  </div>\n\n\t  <div class=\"modal-footer\" style=\"justify-content: center;\">\n\t    <button type=\"submit\" class=\"btn btn-outline-dark\" (click)=\"signup()\">SignUp</button>\n\t  </div>\n\t</ng-template>\n\n\t\n</ng-template>\n<ng-template #LOGOUT>\n\t<span class=\"text-muted\">Logged in as {{user}}</span>\n\t<button class=\"btn btn-outline-primary\" (click)=\"logout()\">Logout</button>\n</ng-template>"
 
 /***/ }),
 
@@ -303,7 +303,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/date-list/date-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <ngb-datepicker #dp [(ngModel)]=\"model\" (ngModelChange)=\"switchDate($event)\"></ngb-datepicker>  -->\n<div class=\"mx-auto\">\n\t<button class=\"btn btn-sm btn-light\" (click)=\"lastDay()\">Prev Day</button>\n\t<form class=\"form-inline inline\">\n\t  <div class=\"form-group\">\n\t    <div class=\"input-group\">\n\t      <input class=\"form-control\" placeholder=\"yyyy-mm-dd\"\n\t             name=\"dp\" [(ngModel)]=\"model\" (ngModelChange)=\"switchDate($event)\" ngbDatepicker #d=\"ngbDatepicker\" >\n\t      <button class=\"input-group-addon\" (click)=\"d.toggle()\" type=\"button\">\n\t        <img src=\"assets/calendar-icon.svg\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/>\n\t      </button>\n\t    </div>\n\t  </div>\n\t</form>\n\t<button class=\"btn btn-sm btn-light\" (click)=\"nextDay()\">Next Day</button>\n</div>\n\n"
+module.exports = "<!-- <ngb-datepicker #dp [(ngModel)]=\"model\" (ngModelChange)=\"switchDate($event)\"></ngb-datepicker>  -->\n<div class=\"mx-auto\">\n\t<button class=\"btn btn-sm btn-light\" (click)=\"lastDay()\">Prev Day</button>\n\t<form class=\"form-inline inline col col-4\">\n\t  <div class=\"form-group\">\n\t    <div class=\"input-group\">\n\t      <input class=\"form-control\" placeholder=\"yyyy-mm-dd\"\n\t             name=\"dp\" [(ngModel)]=\"model\" (ngModelChange)=\"switchDate($event)\" ngbDatepicker #d=\"ngbDatepicker\" >\n\t      <button class=\"input-group-addon\" (click)=\"d.toggle()\" type=\"button\">\n\t        <img src=\"assets/calendar-icon.svg\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/>\n\t      </button>\n\t    </div>\n\t  </div>\n\t</form>\n\t<button class=\"btn btn-sm btn-light\" (click)=\"nextDay()\">Next Day</button>\n</div>\n\n"
 
 /***/ }),
 
@@ -567,7 +567,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/tasks/tasks.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\t<div class=\"row\">\n\t\t<date-list class='mx-auto' (onChange)=\"switchDate($event)\"></date-list>\n\t\t<progress-bar class='float-right' [undone]=\"toDoList.length\" [done]=\"doneList.length\"></progress-bar>\n\t</div>\n\t<br>\n\n\t<div class=\"row\">\n\t\t<to-do-list class='col-6' [tasksList]=\"toDoList\" [isLoaded]=\"isLoaded_todo\" (onDone)=\"onDone($event)\"></to-do-list>\n\n\t\t<done-list class='col-6' [tasksList]=\"doneList\" [isLoaded]=\"isLoaded_done\"></done-list>\n\t</div>\n\n</div>\n\n"
+module.exports = "<div class=\"container\">\n\t<div class=\"row\">\n\t\t<date-list class='mx-auto col' (onChange)=\"switchDate($event)\"></date-list>\n\t\t<progress-bar class='col float-right' [undone]=\"toDoList.length\" [done]=\"doneList.length\"></progress-bar>\n\t</div>\n\t<br>\n\n\t<div class=\"row\">\n\t\t<to-do-list class='col-12 col-lg-6' [tasksList]=\"toDoList\" [isLoaded]=\"isLoaded_todo\" (onDone)=\"onDone($event)\"></to-do-list>\n\n\t\t<done-list class='col-12 col-lg-6' [tasksList]=\"doneList\" [isLoaded]=\"isLoaded_done\"></done-list>\n\t</div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -966,7 +966,7 @@ var TasksService = (function () {
             .map(function (res) { return res.json(); });
     };
     TasksService.prototype.deleteTask = function (id) {
-        if (id) {
+        if (id && this.status == 'login') {
             return this.http.delete('/api/task/' + id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (res) {
@@ -976,19 +976,21 @@ var TasksService = (function () {
     };
     TasksService.prototype.doneTask = function (task) {
         console.log('task service - doneTask:', task.name);
-        if (task.isDone) {
-            var updateTask = {
-                isDone: task.isDone,
-                doneTime: task.doneTime,
-                timeCost: task.timeCost
-            };
-            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-            headers.append('Content-Type', 'application/json');
-            this.http.put('/api/task/' + task._id, JSON.stringify(updateTask), { headers: headers })
-                .map(function (res) { return res.json(); })
-                .subscribe(function (res) {
-                console.log('update priority:', task.name);
-            });
+        if (this.status == 'login') {
+            if (task.isDone) {
+                var updateTask = {
+                    isDone: task.isDone,
+                    doneTime: task.doneTime,
+                    timeCost: task.timeCost
+                };
+                var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+                headers.append('Content-Type', 'application/json');
+                this.http.put('/api/task/' + task._id, JSON.stringify(updateTask), { headers: headers })
+                    .map(function (res) { return res.json(); })
+                    .subscribe(function (res) {
+                    console.log('update priority:', task.name);
+                });
+            }
         }
     };
     TasksService.prototype.updatePriority = function (task) {

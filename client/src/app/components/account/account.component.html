@@ -2,15 +2,13 @@
 
 <ng-template #LOGIN>
 	<form class="form-inline" (ngSubmit)="login()">
-		<div class="input-group">
-		  <span class="input-group-addon" id="basic-addon1">@</span>
+		<div class="input-group col">
 		  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="email" name="name">
 		</div>
-		<div class="input-group">
-		  <span class="input-group-addon" id="basic-addon1">@</span>
+		<div class="input-group col">
 		  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="password" name="pass">
 		</div>
-		<button type="submit" class="btn btn-sm btn-outline-primary">Login</button>
+		<button type="submit" class="btn btn-sm btn-outline-primary d-block">Login</button>
 		<button type="button" class="btn btn-sm btn-outline-primary btn-space" (click)="open(content)">SignUp</button>
 	</form>
 

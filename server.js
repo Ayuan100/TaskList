@@ -54,7 +54,7 @@ mongoose.connect('mongodb://ayuan:ayuan@ds157444.mlab.com:57444/ayuan-first', fu
     else console.log('connect to mongodb');
 });
 
-var port = 8080;
+var port = 3000;
 app.listen(port, function(){
 	console.log("server listening on port ", port);
 })

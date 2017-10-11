@@ -52,7 +52,7 @@ export class TasksService {
             .map(res => res.json());
   }
   deleteTask(id){
-  	if(id){
+  	if(id && this.status == 'login'){
       return this.http.delete('/api/task/'+id)
             .map(res => res.json())
             .subscribe(res => {
@@ -62,23 +62,26 @@ export class TasksService {
   }
   doneTask(task){
     console.log('task service - doneTask:', task.name);
-    if(task.isDone){
-      let updateTask = {
-        isDone: task.isDone,
-        doneTime: task.doneTime,
-        timeCost: task.timeCost
-      };
+    if(this.status == 'login'){
+      if(task.isDone){
+        let updateTask = {
+          isDone: task.isDone,
+          doneTime: task.doneTime,
+          timeCost: task.timeCost
+        };
 
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
 
-      this.http.put('/api/task/'+task._id,JSON.stringify(updateTask), {headers: headers})
-            .map(res => res.json())
-            .subscribe(res => {
-                console.log('update priority:',task.name);
-            });
+        this.http.put('/api/task/'+task._id,JSON.stringify(updateTask), {headers: headers})
+              .map(res => res.json())
+              .subscribe(res => {
+                  console.log('update priority:',task.name);
+              });
+      }
     }
   }
+
   updatePriority(task: Task){
     if(this.status == 'login'){
       let updateTask = {

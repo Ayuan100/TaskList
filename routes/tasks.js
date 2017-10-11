@@ -25,7 +25,7 @@ router.get('/tasks', isAuthenticated, function(req, res, next){
                     isDone:(isDone=='true')
                 },
                 '-user')
-            .sort({priority: 1})
+            .sort(isDone=='true' ? {doneTime: 1} : {priority: 1})
             .exec(function(err, tasks){
                 if(err){
                     res.send(err);
@@ -61,7 +61,7 @@ router.post('/task', isAuthenticated, function(req, res, next){
 router.delete('/task/:id', isAuthenticated, function(req, res, next){
     console.log('delete:', req.params.id);
     Task.remove({
-            _id: mongojs.ObjectId(req.params.id),
+            _id: req.params.id,
             user: req.user.email
         }, function(err, task){
         if(err){
@@ -77,7 +77,7 @@ router.put('/task/:id', isAuthenticated, function(req, res, next){
     console.log('update task:', req.params.id, ' to ', updateTask);
     if(updateTask && req.params.id){
         Task.where({
-                _id: mongojs.ObjectId(req.params.id),
+                _id: req.params.id,
                 user: req.user.email
             })
             .update({$set:updateTask}, function(err, task){
