@@ -10,7 +10,8 @@
 		  <span class="input-group-addon" id="basic-addon1">@</span>
 		  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="password" name="pass">
 		</div>
-		<button type="submit" class="btn btn-outline-primary">Login</button>
+		<button type="submit" class="btn btn-sm btn-outline-primary">Login</button>
+		<button type="button" class="btn btn-sm btn-outline-primary btn-space" (click)="open(content)">SignUp</button>
 	</form>
 
 
@@ -23,13 +24,12 @@
 	  </div>
 
 	  <div class="modal-body">
-	    <form class="form-inline">
-			<div class="input-group">
-			  <span class="input-group-addon" id="basic-addon1">@</span>
-			  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="newEmail" name="name">
+	    <form>
+			<div class="form-group col-8 mx-auto">
+			  <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="newEmail" name="name">
 			</div>
-			<div class="input-group">
-			  <span class="input-group-addon" id="basic-addon1">@</span>
+			<br>
+			<div class="form-group col-8 mx-auto">
 			  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="newPassword" name="pass">
 			</div>
 		</form>
@@ -40,7 +40,7 @@
 	  </div>
 	</ng-template>
 
-	<button class="btn btn-outline-primary" (click)="open(content)">SignUp</button>
+	
 </ng-template>
 <ng-template #LOGOUT>
 	<span class="text-muted">Logged in as {{user}}</span>
