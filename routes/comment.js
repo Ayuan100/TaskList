@@ -3,7 +3,7 @@ var passport = require('passport');
 var Comment = require('../models/comment');
 var router = express.Router();
 
-var origin = 'https://ayuan100.github.io/100Paintings/';
+var origin = '*';
 router.get('/:title', function(req, res) {
 	console.log('get comment of title:', req.params.title);
     Comment.find({
