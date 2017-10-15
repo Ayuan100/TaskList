@@ -33,7 +33,7 @@ export class AccountComponent implements OnInit {
         console.log('status:', res);
         if(res.user){
           this.status = 'login';
-          this.user = 'res.user';
+          this.user = res.user;
         }
         else this.status = 'temp';
         this.onChange.emit(this.status);

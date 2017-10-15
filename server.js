@@ -76,9 +76,9 @@ var SSLPORT = 8081;
 httpServer.listen(PORT, function() {
     console.log('HTTP Server is running on: http://localhost:%s', PORT);
 });
-httpsServer.listen(SSLPORT, function() {
-    console.log('HTTPS Server is running on: https://localhost:%s', SSLPORT);
-});
+// httpsServer.listen(SSLPORT, function() {
+//     console.log('HTTPS Server is running on: https://localhost:%s', SSLPORT);
+// });
 
 
 // var port = 8080;
