@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 
 
 
+
 var app = express();
 
 //View Engine
@@ -46,6 +47,9 @@ app.use('/account', account);
 app.use('/api', tasks);
 app.use('/', index);
 
+var comment = require('./routes/comment');
+app.use('/comment',comment);
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://ayuan:ayuan@ds157444.mlab.com:57444/ayuan-first', function(err){
     if(err){
@@ -54,7 +58,27 @@ mongoose.connect('mongodb://ayuan:ayuan@ds157444.mlab.com:57444/ayuan-first', fu
     else console.log('connect to mongodb');
 });
 
-var port = 3000;
-app.listen(port, function(){
-	console.log("server listening on port ", port);
-})
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
+var privateKey  = fs.readFileSync('private.pem', 'utf8');
+var certificate = fs.readFileSync('file.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+var PORT = 8080;
+var SSLPORT = 8081;
+
+httpServer.listen(PORT, function() {
+    console.log('HTTP Server is running on: http://localhost:%s', PORT);
+});
+httpsServer.listen(SSLPORT, function() {
+    console.log('HTTPS Server is running on: https://localhost:%s', SSLPORT);
+});
+
+
+// var port = 8080;
+// app.listen(port, function(){
+// 	console.log("server listening on port ", port);
+// });
