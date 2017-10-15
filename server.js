@@ -45,10 +45,13 @@ var tasks = require('./routes/tasks');
 var index = require('./routes/index');
 app.use('/account', account);
 app.use('/api', tasks);
-app.use('/', index);
 
 var comment = require('./routes/comment');
 app.use('/comment',comment);
+
+app.use('/', index);
+
+
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://ayuan:ayuan@ds157444.mlab.com:57444/ayuan-first', function(err){
