@@ -3,7 +3,7 @@ var passport = require('passport');
 var Comment = require('../models/comment');
 var router = express.Router();
 
-
+var origin = 'https://ayuan100.github.io/100Paintings/';
 router.get('/:title', function(req, res) {
 	console.log('get comment of title:', req.params.title);
     Comment.find({
@@ -15,7 +15,7 @@ router.get('/:title', function(req, res) {
                     res.send(err);
                 }
                 // console.log('get comments:',comments);
-                res.header('Access-Control-Allow-Origin','http://localhost:3000');
+                res.header('Access-Control-Allow-Origin',origin);
                 res.json(comments);
                 // console.log(tasks.length);
             });
@@ -29,7 +29,7 @@ router.post('/', function(req, res) {
             if(err){
                 res.send(err);
             }
-            res.header('Access-Control-Allow-Origin','http://localhost:3000');
+            res.header('Access-Control-Allow-Origin',origin);
             res.json(comment);
         });
 });
@@ -37,19 +37,19 @@ router.post('/', function(req, res) {
 // Delete Task
 router.delete('/:id',  function(req, res, next){
     console.log('delete:', req.params.id);
-    res.header('Access-Control-Allow-Origin','http://localhost:3000');
+    // res.header('Access-Control-Allow-Origin',origin);
     Comment.remove({
             _id: req.params.id
         }, function(err, comment){
         if(err){
             res.send(err);
         }
-        res.header('Access-Control-Allow-Origin','http://localhost:3000');
+        res.header('Access-Control-Allow-Origin',origin);
         res.json(comment);
     });
 });
 router.options("/:id", function(req, res, next){
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Allow-Origin', origin);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
   res.send(200);
